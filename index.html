@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puthina.Podcast - Your Weekly Dose of Insightful Conversations</title>
-    <!-- Link to the external CSS file -->
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- link -->
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,10 +17,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700&display=swap"
         rel="stylesheet">
+ 
 </head>
 
-<body>
-   <!-- Header & Navigation -->
+<body class="antialiased">
+    <!-- Header & Navigation -->
     <header class="header">
         <div class="nav-container container">
             <nav class="nav">
@@ -35,10 +38,11 @@
                 </button>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#episodes" class="nav-link">All Episodes</a></li>
+                    <li><a href="#episodes" class="nav-link"> Episodes</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
-                    <li class="nav-btn hide-on-mobile"><a href="#support" class="nav-link">Make a Contribution</a></li>
+                    <li class="nav-btn hide-on-mobile"><a href="#support">Make a Contribution</a></li>
+                    <li class="w-full px-4 pt-4 md:hidden"><a href="#support" class="btn btn-primary w-full block">Make a Contribution</a></li>
                 </ul>
             </nav>
         </div>
@@ -46,16 +50,47 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Puthina.Podcast</h1>
-                <p class="hero-tagline">Your weekly dose of insightful conversations</p>
-                <div class="hero-buttons">
+        <!-- പശ്ചാത്തലം 1: നീല നിറം -->
+        <div id="background-1" class="background-container">
+            <div class="absolute top-0 -left-4 w-72 h-72 bg-sky-500/30 rounded-full filter blur-3xl opacity-70 animate-blob"></div>
+            <div class="absolute -bottom-8 right-0 w-80 h-80 bg-pink-500/30 rounded-full filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+            <div class="absolute top-1/2 left-1/3 w-72 h-72 bg-indigo-500/30 rounded-full filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+        </div>
+        <!-- പശ്ചാത്തലം 2: മിൻ്റ് ഗ്രീൻ നിറം -->
+        <div id="background-2" class="background-container">
+            <div class="absolute top-1/4 left-10 w-72 h-72 bg-emerald-400/30 rounded-full filter blur-3xl opacity-70 animate-blob animation-delay-6000"></div>
+            <div class="absolute bottom-1/4 right-10 w-72 h-72 bg-green-400/30 rounded-full filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+            <div class="absolute top-1/2 left-1/3 w-72 h-72 bg-teal-400/30 rounded-full filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+        </div>
+        
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-center md:justify-between gap-8">
+            <!-- Left side: Text content -->
+            <div class="hero-content text-center md:text-left md:w-3/5">
+                 <!-- തലക്കെട്ടും പുതിനയിലയുടെ ആനിമേഷനും -->
+                <div class="flex items-center justify-center md:justify-start">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                        Puthina.Podcast
+                    </h1>
+                    <!-- This image is hidden on small screens and shown on larger screens via CSS -->
+                    <img src="https://img.icons8.com/plasticine/100/mint.png" alt="Mint Leaf" class="mint-leaf-animation">
+                </div>
+
+                <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto md:mx-0 mt-4">
+                    Your weekly dose of insightful conversations
+                </p>
+
+                <!-- നിലവിലുള്ള ബട്ടണുകൾ -->
+                <div class="hero-buttons justify-center md:justify-start">
                     <a href="#latest-episode" class="btn btn-primary">Listen to the Latest Episode</a>
-                    <a href="https://youtube.com/@yourpodcast" class="btn btn-secondary" target="_blank">Subscribe on
-                        YouTube</a>
+                    <a href="https://youtube.com/@yourpodcast" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Subscribe on YouTube</a>
                     <a href="#support" class="btn btn-secondary show-on-mobile">Make a Contribution</a>
                 </div>
+            </div>
+            <!-- Right side: Logo Placeholder Link -->
+            <div class="hidden md:flex md:w-2/5 justify-center items-center">
+                 <a href="#" class="hero-logo-large block w-full max-w-md">
+                    <img src="image/Untitled design(2).png" alt="ലോഗോയ്ക്ക് വേണ്ടിയുള്ള സ്ഥലം" class="rounded-full w-full h-auto opacity-100 transition-opacity duration-300">
+                </a>
             </div>
         </div>
     </section>
@@ -64,30 +99,42 @@
     <section class="latest-episode" id="latest-episode">
         <div class="container">
             <h2 class="section-title animate-on-scroll">Our Latest Episode</h2>
+            <!-- പുതിയ മാറ്റം ഇവിടെയാണ് -->
             <div class="episode-featured animate-on-scroll">
-                <div class="episode-video">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/b31kb3D2tdw?si=ZLBdBJSrlx4lzzJ4" title="Latest Episode" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
+                <!-- Mobile View: Thumbnail + Link -->
+                <a href="https://www.youtube.com/watch?v=b31kb3D2tdw" target="_blank" rel="noopener noreferrer" class="block md:hidden w-full max-w-lg mx-auto relative group">
+                    <img src="https://img.youtube.com/vi/b31kb3D2tdw/maxresdefault.jpg" alt="Latest Episode Thumbnail" class="rounded-xl shadow-lg w-full">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-all duration-300 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-play-circle text-white text-6xl opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-transform duration-300"></i>
                     </div>
-                </div>
-                <div class="episode-info">
-                    <span class="episode-number">Episode 42</span>
-                    <h3 class="episode-title">The Future of Technology and Human Connection</h3>
-                    <p class="episode-description">
-                        In this thought-provoking episode, we dive deep into the evolving relationship between
-                        technology and human interaction. Our guest shares fascinating insights on how digital
-                        transformation is reshaping the way we communicate, work, and build meaningful relationships in
-                        the modern world.
-                    </p>
+                </a>
+
+                <!-- Desktop View: Existing Layout -->
+                <div class="hidden md:flex md:flex-wrap md:gap-10 md:items-center md:justify-center">
+                    <div class="episode-video">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/b31kb3D2tdw?si=ZLBdBJSrlx4lzzJ4" title="Latest Episode" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="episode-info">
+                        <span class="episode-number">Episode 42</span>
+                        <h3 class="episode-title">The Future of Technology and Human Connection</h3>
+                        <p class="episode-description">
+                            In this thought-provoking episode, we dive deep into the evolving relationship between
+                            technology and human interaction. Our guest shares fascinating insights on how digital
+                            transformation is reshaping the way we communicate, work, and build meaningful relationships in
+                            the modern world.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Popular Episodes Section -->
+    <!-- Popular Episodes Section 
     <section class="popular-episodes" id="episodes">
         <div class="container">
             <h2 class="section-title animate-on-scroll">Popular Episodes</h2>
@@ -138,7 +185,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- About Section -->
     <section class="about" id="about">
@@ -163,8 +210,7 @@
         <div class="container">
             <h2 class="section-title animate-on-scroll">Send Us Your Feedback</h2>
             <div class="contact-wrapper">
-                <form class="contact-form animate-on-scroll" action="https://formspree.io/f/YOUR_UNIQUE_ID"
-                    method="POST">
+                <form id="contact-form" class="contact-form animate-on-scroll">
                     <div class="form-group">
                         <label for="name">Your Name</label>
                         <input type="text" id="name" name="name" required>
@@ -202,7 +248,7 @@
                 <div class="social-links">
                     <a href="https://youtube.com/@yourpodcast" target="_blank" aria-label="YouTube"><i
                             class="fab fa-youtube"></i></a>
-                    <a href="https://spotify.com/yourpodcast" target="_blank" aria-label="Spotify"><i
+                    <a href="https://spotify.com/@yourpodcast" target="_blank" aria-label="Spotify"><i
                             class="fab fa-spotify"></i></a>
                     <a href="https://instagram.com/yourpodcast" target="_blank" aria-label="Instagram"><i
                             class="fab fa-instagram"></i></a>
@@ -213,6 +259,18 @@
             </div>
         </div>
     </footer>
+
+    <!-- Form Status Modal -->
+    <div id="statusModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[1100]" style="display: none;">
+        <div class="bg-white/10 backdrop-blur-lg rounded-xl p-8 shadow-2xl text-center text-white max-w-sm w-full relative">
+            <button id="closeModalBtn" class="absolute top-2 right-4 text-2xl text-gray-300 hover:text-white">&times;</button>
+            <div id="modalIcon" class="mb-4 text-5xl"></div>
+            <p id="modalMessage" class="font-semibold text-lg"></p>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <a href="#home" id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></a>
 
     <!-- JavaScript -->
     <script>
@@ -239,7 +297,7 @@
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (!e.target.closest('.nav') && navLinks.classList.contains('active')) {
+            if (!e.target.closest('.nav-container') && navLinks.classList.contains('active')) {
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
                 body.classList.remove('menu-open'); // Remove overflow: hidden
@@ -267,20 +325,45 @@
             });
         });
 
-        // Header scroll effect
-        let lastScroll = 0;
+        // Header scroll effect & Scroll-to-top button
         const header = document.querySelector('.header');
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        let lastScroll = 0;
 
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
 
+            // Scrolled Header
             if (currentScroll > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
-
             lastScroll = currentScroll;
+
+            // Scroll-to-top Button visibility
+            if (currentScroll > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+
+            // Active link highlighting on scroll
+            let currentSection = '';
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 90; // Adjust offset
+                if(pageYOffset >= sectionTop) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href').substring(1) === currentSection){
+                   link.classList.add('active');
+                }
+            });
         });
 
         // Scroll Animation Logic
@@ -300,7 +383,77 @@
         animatedElements.forEach(element => {
             observer.observe(element);
         });
+
+        // Contact Form AJAX Submission with Modal
+        const contactForm = document.getElementById('contact-form');
+        const statusModal = document.getElementById('statusModal');
+        const modalIcon = document.getElementById('modalIcon');
+        const modalMessage = document.getElementById('modalMessage');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        function showModal(message, isSuccess) {
+            modalMessage.textContent = message;
+            if (isSuccess) {
+                modalIcon.innerHTML = '<i class="fas fa-check-circle text-green-400"></i>';
+            } else {
+                modalIcon.innerHTML = '<i class="fas fa-times-circle text-red-400"></i>';
+            }
+            statusModal.style.display = 'flex';
+            setTimeout(() => statusModal.classList.add('visible'), 10);
+        }
+
+        function hideModal() {
+            statusModal.classList.remove('visible');
+            setTimeout(() => statusModal.style.display = 'none', 300);
+        }
+
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', hideModal);
+            statusModal.addEventListener('click', function(e) {
+                if (e.target === statusModal) {
+                    hideModal();
+                }
+            });
+        }
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const form = e.target;
+                const data = new FormData(form);
+                const action = "https://formspree.io/f/movkrkzo";
+                const submitButton = form.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+
+
+                fetch(action, {
+                    method: 'POST',
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        showModal("Thanks for your feedback!", true);
+                        form.reset();
+                    } else {
+                        response.json().then(data => {
+                            const errorMessage = data.errors ? data.errors.map(error => error.message).join(', ') : "Oops! There was a problem.";
+                            showModal(errorMessage, false);
+                        })
+                    }
+                }).catch(error => {
+                    showModal("Oops! There was a problem submitting your form.", false);
+                }).finally(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Send Message';
+                });
+            });
+        }
     </script>
 </body>
 
 </html>
+
