@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puthina.Podcast - Your Weekly Dose of Insightful Conversations</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter and Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+   <!-- Header & Navigation -->
+    <header class="header">
+        <div class="nav-container container">
+            <nav class="nav">
+                <a href="#home" class="nav-logo-link">
+                    <div class="nav-logo">
+                        <img src="image/Untitled design(1).png" alt="Puthina.Podcast Logo" class="logo-image">
+                        <span class="logo-text">Puthina.Podcast</span>
+                    </div>
+                </a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#episodes" class="nav-link">All Episodes</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li class="nav-btn hide-on-mobile"><a href="#support" class="nav-link">Make a Contribution</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Puthina.Podcast</h1>
+                <p class="hero-tagline">Your weekly dose of insightful conversations</p>
+                <div class="hero-buttons">
+                    <a href="#latest-episode" class="btn btn-primary">Listen to the Latest Episode</a>
+                    <a href="https://youtube.com/@yourpodcast" class="btn btn-secondary" target="_blank">Subscribe on
+                        YouTube</a>
+                    <a href="#support" class="btn btn-secondary show-on-mobile">Make a Contribution</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Episode Section -->
+    <section class="latest-episode" id="latest-episode">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Our Latest Episode</h2>
+            <div class="episode-featured animate-on-scroll">
+                <div class="episode-video">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/b31kb3D2tdw?si=ZLBdBJSrlx4lzzJ4" title="Latest Episode" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <div class="episode-info">
+                    <span class="episode-number">Episode 42</span>
+                    <h3 class="episode-title">The Future of Technology and Human Connection</h3>
+                    <p class="episode-description">
+                        In this thought-provoking episode, we dive deep into the evolving relationship between
+                        technology and human interaction. Our guest shares fascinating insights on how digital
+                        transformation is reshaping the way we communicate, work, and build meaningful relationships in
+                        the modern world.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Episodes Section -->
+    <section class="popular-episodes" id="episodes">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Popular Episodes</h2>
+            <div class="episodes-grid">
+                <div class="episode-card animate-on-scroll">
+                    <div class="card-thumbnail">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Episode 38">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-episode-number">Episode 38</span>
+                        <h3 class="card-title">Building Resilience in Uncertain Times</h3>
+                        <a href="https://youtube.com/watch?v=dQw4w9WgXcQ" class="card-link" target="_blank">Watch Now <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="episode-card animate-on-scroll">
+                    <div class="card-thumbnail">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Episode 35">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-episode-number">Episode 35</span>
+                        <h3 class="card-title">The Art of Mindful Leadership</h3>
+                        <a href="https://youtube.com/watch?v=dQw4w9WgXcQ" class="card-link" target="_blank">Watch Now <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="episode-card animate-on-scroll">
+                    <div class="card-thumbnail">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Episode 29">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-episode-number">Episode 29</span>
+                        <h3 class="card-title">Creativity and Innovation in Business</h3>
+                        <a href="https://youtube.com/watch?v=dQw4w9WgXcQ" class="card-link" target="_blank">Watch Now <i
+                                class="fas fa-arrow-right"></i></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">About Puthina.Podcast</h2>
+            <div class="about-content animate-on-scroll">
+                <p class="about-text">
+                    Welcome to our podcast! We bring you engaging conversations with thought leaders, innovators, and
+                    experts from around the world. Each episode is designed to inspire, educate, and challenge your
+                    perspective on the topics that matter most.
+                </p>
+                <p class="about-text">
+                    Join us every week as we explore new ideas, share stories, and create meaningful discussions that
+                    resonate with our growing community of listeners.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Feedback Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Send Us Your Feedback</h2>
+            <div class="contact-wrapper">
+                <form class="contact-form animate-on-scroll" action="https://formspree.io/f/YOUR_UNIQUE_ID"
+                    method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="support animate-on-scroll" id="support">
+        <div class="container">
+            <div class="support-content">
+                <h2 class="section-title">Enjoy the Show? Support Us!</h2>
+                <p class="support-text">Your contributions help us create more amazing content and keep the
+                    conversations going.</p>
+                <a href="#" class="btn btn-support">Make a Contribution</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="https://youtube.com/@yourpodcast" target="_blank" aria-label="YouTube"><i
+                            class="fab fa-youtube"></i></a>
+                    <a href="https://spotify.com/yourpodcast" target="_blank" aria-label="Spotify"><i
+                            class="fab fa-spotify"></i></a>
+                    <a href="https://instagram.com/yourpodcast" target="_blank" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/yourpodcast" target="_blank" aria-label="Twitter"><i
+                            class="fab fa-twitter"></i></a>
+                </div>
+                <p class="copyright">&copy; 2025 Puthina.Podcast. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const body = document.body;
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            body.classList.toggle('menu-open'); // Toggle overflow: hidden on body
+        });
+
+        // Close mobile menu when a link is clicked
+        const navLinkElements = document.querySelectorAll('.nav-link');
+        navLinkElements.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                body.classList.remove('menu-open'); // Remove overflow: hidden
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav') && navLinks.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                body.classList.remove('menu-open'); // Remove overflow: hidden
+            }
+        });
+
+        // Smooth Scroll for all internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const headerOffset = 80; // Adjust if your header height changes significantly
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        const header = document.querySelector('.header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Scroll Animation Logic
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once the animation is done
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger animation when 10% of the element is visible
+        });
+
+        animatedElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+
+</html>
