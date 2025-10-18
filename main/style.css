@@ -177,7 +177,6 @@ h3 {
 
 .hamburger.active span {
     background: #059669;
-    /* Kept green to be visible on white header */
 }
 
 .hamburger.active span:nth-child(1) {
@@ -817,6 +816,7 @@ h3 {
     .hamburger {
         display: flex;
         padding-right: 1rem;
+        z-index: 1011;
     }
 
     .nav-links {
@@ -833,7 +833,8 @@ h3 {
         align-items: center;
         transition: top 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        z-index: 999;
+        z-index: 1005;
+        /* Below header */
         padding: 1rem 0;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
