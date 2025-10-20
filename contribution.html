@@ -220,16 +220,22 @@
 
 
     <script>
-        // Amount selection logic
+         // Amount selection logic
         const amountInput = document.getElementById('amount');
         const upiLink = document.getElementById('upi-link');
         const amountButtons = document.querySelectorAll('.amount-btn');
-        const baseUpiUrl = 'puthina.podcast@ptyes';
+        const baseUpiUrl = 'upi://pay?pa=shibilikds938-1@okaxis&pn=Puthina.Podcast&cu=INR&tn=Contribution';
 
         function updateUpiLink(amount) {
-            const finalAmount = parseFloat(amount).toFixed(2);
+            const finalAmount = parseFloat(amount);
             if (finalAmount > 0) {
-                upiLink.href = `${baseUpiUrl}&am=${finalAmount}`;
+                upiLink.href = `${baseUpiUrl}&am=${finalAmount.toFixed(2)}`;
+                upiLink.classList.remove('opacity-50', 'cursor-not-allowed');
+                upiLink.classList.add('transform', 'hover:scale-105');
+            } else {
+                upiLink.href = '#'; // Prevent clicking with no amount
+                upiLink.classList.add('opacity-50', 'cursor-not-allowed');
+                upiLink.classList.remove('transform', 'hover:scale-105');
             }
         }
 
@@ -244,6 +250,7 @@
         amountInput.addEventListener('input', () => {
             updateUpiLink(amountInput.value);
         });
+
 
         // Set default value on load
         amountInput.value = '220';
