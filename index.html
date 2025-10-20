@@ -23,13 +23,24 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            color: #333;
+            color: #d1d5db;
+            /* Light grey text for dark background */
             line-height: 1.6;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            /* Prevent horizontal scroll */
-            background-color: #f9f9f9;
+            background-color: #111827;
+            /* Dark background */
+        }
+
+        /* Disable text selection */
+        body {
+            -webkit-user-select: none;
+            /* Safari */
+            -ms-user-select: none;
+            /* IE 10+ and Edge */
+            user-select: none;
+            /* Standard syntax */
         }
 
         /* Prevent scrolling when mobile menu is open */
@@ -41,8 +52,8 @@
         h2,
         h3 {
             font-family: 'Poppins', sans-serif;
-            color: #1a202c;
-            /* Darker heading color */
+            color: #e5e7eb;
+            /* Off-white for headings */
         }
 
         .container {
@@ -65,19 +76,24 @@
 
         /* Header & Navigation */
         .header {
-            background-color: #ffffff;
+            background-color: rgba(17, 24, 39, 0.8);
+            /* Dark glass effect for header */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease-in-out;
         }
 
         .header.scrolled {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            background-color: #ffffff;
+            background-color: rgba(25, 35, 53, 0.9);
+            /* Slightly darker when scrolled */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
 
         .nav-container {
@@ -88,6 +104,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 76px;
         }
 
         .nav-logo-link {
@@ -101,7 +118,7 @@
         }
 
         .nav-logo .logo-image {
-            height: 60px;
+            height: 50px;
             width: auto;
             border-radius: 50%;
         }
@@ -109,7 +126,8 @@
         .nav-logo .logo-text {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #1a202c;
+            color: #f3f4f6;
+            /* Light text for logo */
             font-family: 'Poppins', sans-serif;
         }
 
@@ -127,7 +145,8 @@
 
         .nav-link {
             text-decoration: none;
-            color: #4a5568;
+            color: #d1d5db;
+            /* Light grey for links */
             font-weight: 500;
             transition: color 0.3s ease;
             padding: 0.5rem 0;
@@ -141,7 +160,8 @@
             bottom: 0;
             width: 0;
             height: 2px;
-            background-color: #047857;
+            background-color: #10B981;
+            /* Emerald 500 */
             transition: width 0.3s ease;
         }
 
@@ -151,22 +171,26 @@
         }
 
         .nav-link:hover {
-            color: #047857;
+            color: #ffffff;
+            /* White on hover */
         }
 
         .nav-btn a {
             display: inline-block;
             padding: 0.5rem 1.2rem;
-            background-color: #059669;
+            background-color: #10B981;
+            /* Emerald 500 */
             color: white;
             border-radius: 0.5rem;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
             font-weight: 500;
             text-decoration: none;
         }
 
         .nav-btn a:hover {
-            background-color: #065f46;
+            background-color: #059669;
+            /* Emerald 600 */
+            transform: translateY(-2px);
         }
 
         .hamburger {
@@ -186,15 +210,12 @@
             display: block;
             width: 2rem;
             height: 3px;
-            background: #059669;
+            background: #f3f4f6;
+            /* White for hamburger lines */
             border-radius: 10px;
             transition: all 0.3s linear;
             position: relative;
             transform-origin: 1px;
-        }
-
-        .hamburger.active span {
-            background: #059669;
         }
 
         .hamburger.active span:nth-child(1) {
@@ -420,12 +441,39 @@
             font-weight: 700;
             text-align: center;
             margin-bottom: 3rem;
+            color: #9ca3af;
+            /* Light grey for section titles */
+        }
+
+        /* Glass Card Effect for all content sections */
+        .glass-section {
+            background: rgba(31, 41, 55, 0.5);
+            /* Slightly more opaque glass */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            /* Rounded corners */
+            padding: 4rem 2rem;
+            /* Ample padding */
+            margin-bottom: 4rem;
+            /* Space between sections */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         /* Latest Episode Section */
         .latest-episode {
-            padding: 6rem 0;
-            background-color: #ffffff;
+            background-color: transparent;
+            /* Changed to transparent for glass effect */
+            padding: 0;
+        }
+
+        .episode-featured {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            align-items: center;
+            justify-content: center;
         }
 
         .episode-video {
@@ -463,7 +511,8 @@
         .episode-number {
             font-size: 0.9rem;
             font-weight: 600;
-            color: #718096;
+            color: #a7f3d0;
+            /* Emerald 200 */
             margin-bottom: 0.5rem;
             display: block;
         }
@@ -473,18 +522,20 @@
             font-weight: 700;
             margin-bottom: 1rem;
             line-height: 1.3;
+            color: #e5e7eb;
         }
 
         .episode-description {
             font-size: 1.1rem;
-            color: #4a5568;
+            color: #d1d5db;
             margin-bottom: 1.5rem;
         }
 
         /* Popular Episodes Section */
         .popular-episodes {
-            padding: 6rem 0;
-            background-color: #f0fdf4;
+            background-color: transparent;
+            /* Changed to transparent for glass effect */
+            padding: 0;
         }
 
         .episodes-grid {
@@ -495,17 +546,20 @@
         }
 
         .episode-card {
-            background-color: #ffffff;
+            background: rgba(31, 41, 55, 0.7);
+            /* Darker glass effect for cards */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-radius: 0.75rem;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             max-width: 380px;
         }
 
         .episode-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
         }
 
         .card-thumbnail {
@@ -535,7 +589,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(5, 150, 105, 0.7);
+            background-color: rgba(16, 185, 129, 0.7);
+            /* Emerald 500 with opacity */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -562,7 +617,7 @@
         .card-episode-number {
             font-size: 0.85rem;
             font-weight: 600;
-            color: #718096;
+            color: #a7f3d0;
             margin-bottom: 0.5rem;
             display: block;
         }
@@ -572,12 +627,14 @@
             font-weight: 600;
             margin-bottom: 1rem;
             line-height: 1.3;
+            color: #e5e7eb;
         }
 
         .card-link {
             display: inline-flex;
             align-items: center;
-            color: #059669;
+            color: #10B981;
+            /* Emerald 500 */
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
@@ -590,7 +647,8 @@
         }
 
         .card-link:hover {
-            color: #065f46;
+            color: #059669;
+            /* Emerald 600 */
         }
 
         .card-link:hover i {
@@ -599,26 +657,28 @@
 
         /* About Section */
         .about {
-            padding: 6rem 0;
-            background-color: #ffffff;
+            background-color: transparent;
+            /* Changed to transparent for glass effect */
+            padding: 0;
         }
 
         .about-content {
             max-width: 800px;
             margin: 0 auto;
-            text-align: center;
+            text-align: match-parent;
         }
 
         .about-text {
             font-size: 1.15rem;
-            color: #4a5568;
+            color: #d1d5db;
             margin-bottom: 1.5rem;
         }
 
         /* Contact Section */
         .contact {
-            padding: 6rem 0;
-            background-color: #f0fdf4;
+            background-color: transparent;
+            /* Changed to transparent for glass effect */
+            padding: 0;
         }
 
         .contact-wrapper {
@@ -627,12 +687,16 @@
         }
 
         .contact-form {
-            background-color: #ffffff;
+            background: rgba(31, 41, 55, 0.7);
+            /* Darker glass effect for form */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             padding: 3rem;
             border-radius: 0.75rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
             max-width: 600px;
             width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .form-group {
@@ -643,7 +707,8 @@
             display: block;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: #2d3748;
+            color: #e5e7eb;
+            /* Off-white for labels */
         }
 
         .form-group input[type="text"],
@@ -651,19 +716,23 @@
         .form-group textarea {
             width: 100%;
             padding: 0.8rem 1rem;
-            border: 1px solid #e2e8f0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 0.4rem;
             font-size: 1rem;
             font-family: 'Inter', sans-serif;
             box-sizing: border-box;
+            background-color: rgba(17, 24, 39, 0.6);
+            /* Darker transparent input */
+            color: #e5e7eb;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #059669;
-            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
+            border-color: #10B981;
+            /* Emerald 500 */
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
         }
 
         .contact-form .btn-primary {
@@ -674,25 +743,32 @@
             font-size: 1.1rem;
             cursor: pointer;
             color: white;
-            background-color: #059669;
-            border-color: #059669;
+            background-color: #10B981;
+            /* Emerald 500 */
+            border-color: #10B981;
         }
 
         .contact-form .btn-primary:hover {
-            background-color: #065f46;
-            border-color: #065f46;
+            background-color: #059669;
+            /* Emerald 600 */
+            border-color: #059669;
         }
 
         /* Support Section */
         .support {
-            background: linear-gradient(90deg, #059669, #065f46);
+            background: rgba(31, 41, 55, 0.5);
+            /* Glass effect for support section */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: #ffffff;
             text-align: center;
             padding: 5rem 1rem;
-            border-radius: 0.75rem;
+            border-radius: 1.5rem;
+            /* Rounded corners */
             margin: 4rem auto;
             max-width: 1200px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .support-content {
@@ -712,7 +788,8 @@
 
         .btn-support {
             background-color: #ffffff;
-            color: #059669;
+            color: #10B981;
+            /* Emerald 500 */
             border: none;
             padding: 1rem 3rem;
             font-size: 1.1rem;
@@ -731,7 +808,11 @@
 
         /* Footer */
         .footer {
-            background-color: #1a202c;
+            background-color: rgba(17, 24, 39, 0.7);
+            /* Dark glass effect for footer */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #e2e8f0;
             padding: 3rem 0;
             text-align: center;
@@ -757,6 +838,7 @@
 
         .social-links a:hover {
             color: #34D399;
+            /* Mint Green Primary on hover */
             transform: translateY(-3px);
         }
 
@@ -778,7 +860,8 @@
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            background-color: #059669;
+            background-color: #10B981;
+            /* Emerald 500 */
             color: white;
             width: 50px;
             height: 50px;
@@ -959,10 +1042,10 @@
                     <span></span>
                 </button>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html#home" class="nav-link">Home</a></li>
-                    <li><a href="index.html#episodes" class="nav-link"> Episodes</a></li>
-                    <li><a href="index.html#about" class="nav-link">About</a></li>
-                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#episodes" class="nav-link"> Episodes</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                     <li class="nav-btn hide-on-mobile"><a href="contribution.html">Make a Contribution</a></li>
                 </ul>
             </nav>
@@ -1017,7 +1100,7 @@
                 <!-- നിലവിലുള്ള ബട്ടണുകൾ -->
                 <div class="hero-buttons justify-center md:justify-start">
                     <a href="#latest-episode" class="btn btn-primary">Listen to the Latest Episode</a>
-                    <a href="https://youtube.com/@yourpodcast" class="btn btn-secondary" target="_blank"
+                    <a href="https://www.youtube.com/@puthina_podcast" class="btn btn-secondary" target="_blank"
                         rel="noopener noreferrer">Subscribe on YouTube</a>
                     <a href="contribution.html" class="btn btn-secondary show-on-mobile">Make a Contribution</a>
                 </div>
@@ -1033,11 +1116,10 @@
     </section>
 
     <!-- Latest Episode Section -->
-    <section class="latest-episode" id="latest-episode">
+    <section class="latest-episode glass-section" id="latest-episode">
         <div class="container">
             <h2 class="section-title animate-on-scroll">Our Latest Episode</h2>
-            <!-- പുതിയ മാറ്റം ഇവിടെയാണ് -->
-            <div class="episode-featured animate-on-scroll">
+            <div class="episode-featured animate-on-scroll flex-col md:flex-row">
                 <!-- Mobile View: Thumbnail + Link -->
                 <a href="https://www.youtube.com/watch?v=b31kb3D2tdw" target="_blank" rel="noopener noreferrer"
                     class="block md:hidden w-full max-w-lg mx-auto relative group">
@@ -1051,8 +1133,8 @@
                 </a>
 
                 <!-- Desktop View: Existing Layout -->
-                <div class="hidden md:flex md:flex-wrap md:gap-10 md:items-center md:justify-center">
-                    <div class="episode-video">
+                <div class="hidden md:flex md:gap-10 md:items-center w-full">
+                    <div class="episode-video md:w-1/2">
                         <div class="video-wrapper">
                             <iframe src="https://www.youtube.com/embed/b31kb3D2tdw?si=ZLBdBJSrlx4lzzJ4"
                                 title="Latest Episode" frameborder="0"
@@ -1061,7 +1143,7 @@
                             </iframe>
                         </div>
                     </div>
-                    <div class="episode-info">
+                    <div class="episode-info md:w-1/2">
                         <span class="episode-number">Episode 01</span>
                         <h3 class="episode-title">The Future of Technology and Human Connection</h3>
                         <p class="episode-description">
@@ -1078,7 +1160,7 @@
     </section>
 
     <!-- Popular Episodes Section 
-    <section class="popular-episodes" id="episodes">
+    <section class="popular-episodes glass-section" id="episodes">
         <div class="container">
             <h2 class="section-title animate-on-scroll">Popular Episodes</h2>
             <div class="episodes-grid">
@@ -1128,28 +1210,34 @@
                 </div>
             </div>
         </div>
-    </section>-->
+    </section>  -->
 
     <!-- About Section -->
-    <section class="about" id="about">
+    <section class="about glass-section" id="about">
         <div class="container">
             <h2 class="section-title animate-on-scroll">About Puthina.Podcast</h2>
             <div class="about-content animate-on-scroll">
                 <p class="about-text">
-                    Welcome to our podcast! We bring you engaging conversations with thought leaders, innovators, and
-                    experts from around the world. Each episode is designed to inspire, educate, and challenge your
-                    perspective on the topics that matter most.
+                    Are you ready to think deeply about the world of right and wrong? Welcome to our podcast, a space
+                    dedicated to immersive discussions and profound insights on ethics. We believe that by exploring
+                    morality, we gain a clearer understanding of ourselves and the world we inhabit. Each episode is
+                    crafted not just to inform, but to fundamentally challenge your perspectives and expand your
+                    intellectual horizons. We journey from timeless philosophical questions that have defined humanity
+                    to the urgent ethical crises of our modern era, breaking them down with compelling stories and
+                    expert analysis. This is more than just a podcast; it is a growing community of curious minds and
+                    knowledge-seekers. Join us every week to explore new ideas, engage in meaningful conversations, and
+                    become part of a movement dedicated to thoughtful living. Tune in, and let's navigate the intricate
+                    landscape of ethics together.
                 </p>
-                <p class="about-text">
-                    Join us every week as we explore new ideas, share stories, and create meaningful discussions that
-                    resonate with our growing community of listeners.
-                </p>
+
+
+
             </div>
         </div>
     </section>
 
     <!-- Contact & Feedback Section -->
-    <section class="contact" id="contact">
+    <section class="contact glass-section" id="contact">
         <div class="container">
             <h2 class="section-title animate-on-scroll">Send Us Your Feedback</h2>
             <div class="contact-wrapper">
@@ -1173,7 +1261,7 @@
     </section>
 
     <!-- Support Section -->
-    <section class="support animate-on-scroll" id="support">
+    <section class="support glass-section" id="support">
         <div class="container">
             <div class="support-content">
                 <h2 class="section-title">Enjoy the Show? Support Us!</h2>
@@ -1191,10 +1279,9 @@
                 <div class="social-links">
                     <a href="https://www.youtube.com/@puthina_podcast" target="_blank" aria-label="YouTube"><i
                             class="fab fa-youtube"></i></a>
-                            <!-- spotylink   --> 
                     <a href="https://www.instagram.com/puthina.podcast" target="_blank" aria-label="Instagram"><i
                             class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/puthina.podcast" target="_blank" aria-label="Twitter"><i
+                    <a href="https://www.facebook.com/puthina.podcast" target="_blank" aria-label="Facebook"><i
                             class="fab fa-facebook"></i></a>
                 </div>
                 <p class="copyright">&copy; 2025 Puthina.Podcast. All rights reserved.</p>
@@ -1220,6 +1307,11 @@
 
     <!-- JavaScript -->
     <script>
+        // Disable right-click for the entire document
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onselectstart = () => false; // For older browsers
+
+
         // Mobile Menu Toggle
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
