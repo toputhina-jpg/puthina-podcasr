@@ -5,13 +5,24 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    color: #333;
+    color: #d1d5db;
+    /* Light grey text for dark background */
     line-height: 1.6;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    /* Prevent horizontal scroll */
-    background-color: #f9f9f9;
+    background-color: #111827;
+    /* Dark background */
+}
+
+/* Disable text selection */
+body {
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10+ and Edge */
+    user-select: none;
+    /* Standard syntax */
 }
 
 /* Prevent scrolling when mobile menu is open */
@@ -23,8 +34,8 @@ h1,
 h2,
 h3 {
     font-family: 'Poppins', sans-serif;
-    color: #1a202c;
-    /* Darker heading color */
+    color: #e5e7eb;
+    /* Off-white for headings */
 }
 
 .container {
@@ -47,19 +58,24 @@ h3 {
 
 /* Header & Navigation */
 .header {
-    background-color: #ffffff;
+    background-color: rgba(17, 24, 39, 0.8);
+    /* Dark glass effect for header */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease-in-out;
 }
 
 .header.scrolled {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+    background-color: rgba(25, 35, 53, 0.9);
+    /* Slightly darker when scrolled */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .nav-container {
@@ -70,6 +86,7 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 76px;
 }
 
 .nav-logo-link {
@@ -83,7 +100,7 @@ h3 {
 }
 
 .nav-logo .logo-image {
-    height: 60px;
+    height: 50px;
     width: auto;
     border-radius: 50%;
 }
@@ -91,7 +108,8 @@ h3 {
 .nav-logo .logo-text {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #1a202c;
+    color: #f3f4f6;
+    /* Light text for logo */
     font-family: 'Poppins', sans-serif;
 }
 
@@ -109,7 +127,8 @@ h3 {
 
 .nav-link {
     text-decoration: none;
-    color: #4a5568;
+    color: #d1d5db;
+    /* Light grey for links */
     font-weight: 500;
     transition: color 0.3s ease;
     padding: 0.5rem 0;
@@ -123,7 +142,8 @@ h3 {
     bottom: 0;
     width: 0;
     height: 2px;
-    background-color: #047857;
+    background-color: #10B981;
+    /* Emerald 500 */
     transition: width 0.3s ease;
 }
 
@@ -133,22 +153,26 @@ h3 {
 }
 
 .nav-link:hover {
-    color: #047857;
+    color: #ffffff;
+    /* White on hover */
 }
 
 .nav-btn a {
     display: inline-block;
     padding: 0.5rem 1.2rem;
-    background-color: #059669;
+    background-color: #10B981;
+    /* Emerald 500 */
     color: white;
     border-radius: 0.5rem;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     font-weight: 500;
     text-decoration: none;
 }
 
 .nav-btn a:hover {
-    background-color: #065f46;
+    background-color: #059669;
+    /* Emerald 600 */
+    transform: translateY(-2px);
 }
 
 .hamburger {
@@ -168,15 +192,12 @@ h3 {
     display: block;
     width: 2rem;
     height: 3px;
-    background: #059669;
+    background: #f3f4f6;
+    /* White for hamburger lines */
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
-}
-
-.hamburger.active span {
-    background: #059669;
 }
 
 .hamburger.active span:nth-child(1) {
@@ -402,12 +423,39 @@ h3 {
     font-weight: 700;
     text-align: center;
     margin-bottom: 3rem;
+    color: #9ca3af;
+    /* Light grey for section titles */
+}
+
+/* Glass Card Effect for all content sections */
+.glass-section {
+    background: rgba(31, 41, 55, 0.5);
+    /* Slightly more opaque glass */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+    /* Rounded corners */
+    padding: 4rem 2rem;
+    /* Ample padding */
+    margin-bottom: 4rem;
+    /* Space between sections */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Latest Episode Section */
 .latest-episode {
-    padding: 6rem 0;
-    background-color: #ffffff;
+    background-color: transparent;
+    /* Changed to transparent for glass effect */
+    padding: 50px;
+}
+
+.episode-featured {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: center;
 }
 
 .episode-video {
@@ -445,7 +493,8 @@ h3 {
 .episode-number {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #718096;
+    color: #a7f3d0;
+    /* Emerald 200 */
     margin-bottom: 0.5rem;
     display: block;
 }
@@ -455,18 +504,20 @@ h3 {
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1.3;
+    color: #e5e7eb;
 }
 
 .episode-description {
     font-size: 1.1rem;
-    color: #4a5568;
+    color: #d1d5db;
     margin-bottom: 1.5rem;
 }
 
 /* Popular Episodes Section */
 .popular-episodes {
-    padding: 6rem 0;
-    background-color: #f0fdf4;
+    background-color: transparent;
+    /* Changed to transparent for glass effect */
+    padding: 0;
 }
 
 .episodes-grid {
@@ -477,17 +528,20 @@ h3 {
 }
 
 .episode-card {
-    background-color: #ffffff;
+    background: rgba(31, 41, 55, 0.7);
+    /* Darker glass effect for cards */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 0.75rem;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     max-width: 380px;
 }
 
 .episode-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
 }
 
 .card-thumbnail {
@@ -517,7 +571,8 @@ h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(5, 150, 105, 0.7);
+    background-color: rgba(16, 185, 129, 0.7);
+    /* Emerald 500 with opacity */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -544,7 +599,7 @@ h3 {
 .card-episode-number {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #718096;
+    color: #a7f3d0;
     margin-bottom: 0.5rem;
     display: block;
 }
@@ -554,12 +609,14 @@ h3 {
     font-weight: 600;
     margin-bottom: 1rem;
     line-height: 1.3;
+    color: #e5e7eb;
 }
 
 .card-link {
     display: inline-flex;
     align-items: center;
-    color: #059669;
+    color: #10B981;
+    /* Emerald 500 */
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
@@ -572,7 +629,8 @@ h3 {
 }
 
 .card-link:hover {
-    color: #065f46;
+    color: #059669;
+    /* Emerald 600 */
 }
 
 .card-link:hover i {
@@ -581,26 +639,28 @@ h3 {
 
 /* About Section */
 .about {
-    padding: 6rem 0;
-    background-color: #ffffff;
+    background-color: transparent;
+    /* Changed to transparent for glass effect */
+    padding: 50;
 }
 
 .about-content {
     max-width: 800px;
     margin: 0 auto;
-    text-align: center;
+    text-align: match-parent;
 }
 
 .about-text {
     font-size: 1.15rem;
-    color: #4a5568;
+    color: #d1d5db;
     margin-bottom: 1.5rem;
 }
 
 /* Contact Section */
 .contact {
-    padding: 6rem 0;
-    background-color: #f0fdf4;
+    background-color: transparent;
+    /* Changed to transparent for glass effect */
+    padding: 100px;
 }
 
 .contact-wrapper {
@@ -609,12 +669,16 @@ h3 {
 }
 
 .contact-form {
-    background-color: #ffffff;
+    background: rgba(31, 41, 55, 0.7);
+    /* Darker glass effect for form */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 3rem;
     border-radius: 0.75rem;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
     max-width: 600px;
     width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .form-group {
@@ -625,7 +689,8 @@ h3 {
     display: block;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #2d3748;
+    color: #e5e7eb;
+    /* Off-white for labels */
 }
 
 .form-group input[type="text"],
@@ -633,19 +698,23 @@ h3 {
 .form-group textarea {
     width: 100%;
     padding: 0.8rem 1rem;
-    border: 1px solid #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 0.4rem;
     font-size: 1rem;
     font-family: 'Inter', sans-serif;
     box-sizing: border-box;
+    background-color: rgba(17, 24, 39, 0.6);
+    /* Darker transparent input */
+    color: #e5e7eb;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #059669;
-    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
+    border-color: #10B981;
+    /* Emerald 500 */
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
 }
 
 .contact-form .btn-primary {
@@ -656,25 +725,32 @@ h3 {
     font-size: 1.1rem;
     cursor: pointer;
     color: white;
-    background-color: #059669;
-    border-color: #059669;
+    background-color: #10B981;
+    /* Emerald 500 */
+    border-color: #10B981;
 }
 
 .contact-form .btn-primary:hover {
-    background-color: #065f46;
-    border-color: #065f46;
+    background-color: #059669;
+    /* Emerald 600 */
+    border-color: #059669;
 }
 
 /* Support Section */
 .support {
-    background: linear-gradient(90deg, #059669, #065f46);
+    background: rgba(31, 41, 55, 0.5);
+    /* Glass effect for support section */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: #ffffff;
     text-align: center;
     padding: 5rem 1rem;
-    border-radius: 0.75rem;
+    border-radius: 1.5rem;
+    /* Rounded corners */
     margin: 4rem auto;
     max-width: 1200px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .support-content {
@@ -694,7 +770,8 @@ h3 {
 
 .btn-support {
     background-color: #ffffff;
-    color: #059669;
+    color: #10B981;
+    /* Emerald 500 */
     border: none;
     padding: 1rem 3rem;
     font-size: 1.1rem;
@@ -713,7 +790,11 @@ h3 {
 
 /* Footer */
 .footer {
-    background-color: #1a202c;
+    background-color: rgba(17, 24, 39, 0.7);
+    /* Dark glass effect for footer */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: #e2e8f0;
     padding: 3rem 0;
     text-align: center;
@@ -739,6 +820,7 @@ h3 {
 
 .social-links a:hover {
     color: #34D399;
+    /* Mint Green Primary on hover */
     transform: translateY(-3px);
 }
 
@@ -760,7 +842,8 @@ h3 {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background-color: #059669;
+    background-color: #10B981;
+    /* Emerald 500 */
     color: white;
     width: 50px;
     height: 50px;
