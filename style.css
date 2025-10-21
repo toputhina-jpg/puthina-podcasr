@@ -660,7 +660,8 @@ h3 {
 .contact {
     background-color: transparent;
     /* Changed to transparent for glass effect */
-    padding: 100px;
+    padding: inline 0;
+    padding-block: 100;
 }
 
 .contact-wrapper {
