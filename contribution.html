@@ -107,85 +107,118 @@
 
 
     <script>
-         // Amount selection logic
-        const amountInput = document.getElementById('amount');
-        const upiLink = document.getElementById('upi-link');
-        const amountButtons = document.querySelectorAll('.amount-btn');
-        const baseUpiUrl = 'upi://pay?pa=puthina.podcast@ptyes&pn=Puthina.Podcast&cu=INR&tn=Contribution';
+    // Amount selection logic
+    const amountInput = document.getElementById('amount');
+    const upiLink = document.getElementById('upi-link');
+    const amountButtons = document.querySelectorAll('.amount-btn');
+    const baseUpiUrl = 'upi://pay?pa=puthina.podcast@ptyes&pn=Puthina.Podcast&cu=INR&tn=Contribution';
 
-        function updateUpiLink(amount) {
-            const finalAmount = parseFloat(amount);
-            if (finalAmount > 0) {
-                upiLink.href = `${baseUpiUrl}&am=${finalAmount.toFixed(2)}`;
-                upiLink.classList.remove('opacity-50', 'cursor-not-allowed');
-                upiLink.classList.add('transform', 'hover:scale-105');
+    function updateUpiLink(amount) {
+        const finalAmount = parseFloat(amount);
+        if (finalAmount > 0) {
+            const amountParam = `&am=${finalAmount.toFixed(2)}`;
+            const upiUrl = `${baseUpiUrl}${amountParam}`;
+            
+            // ✅ Intent URL (works on Android browsers reliably)
+            const intentUrl = `intent://pay?pa=puthina.podcast@ptyes&pn=Puthina.Podcast&am=${finalAmount.toFixed(2)}&cu=INR&tn=Contribution#Intent;scheme=upi;end`;
+
+            upiLink.dataset.upi = upiUrl;
+            upiLink.dataset.intent = intentUrl;
+
+            upiLink.classList.remove('opacity-50', 'cursor-not-allowed');
+            upiLink.classList.add('transform', 'hover:scale-105');
+        } else {
+            upiLink.removeAttribute('data-upi');
+            upiLink.removeAttribute('data-intent');
+            upiLink.href = '#';
+            upiLink.classList.add('opacity-50', 'cursor-not-allowed');
+            upiLink.classList.remove('transform', 'hover:scale-105');
+        }
+    }
+
+    amountButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const amount = button.dataset.amount;
+            amountInput.value = amount;
+            updateUpiLink(amount);
+        });
+    });
+
+    amountInput.addEventListener('input', () => {
+        updateUpiLink(amountInput.value);
+    });
+
+    // Default amount
+    amountInput.value = '220';
+    updateUpiLink('220');
+
+    // Handle UPI click safely
+    upiLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        const upiUrl = upiLink.dataset.upi;
+        const intentUrl = upiLink.dataset.intent;
+
+        if (!upiUrl) return;
+
+        const userAgent = navigator.userAgent.toLowerCase();
+        const isAndroid = userAgent.includes('android');
+        const isIOS = /iphone|ipad|ipod/.test(userAgent);
+
+        try {
+            if (isAndroid) {
+                // Try intent URL first
+                window.location.href = intentUrl;
+            } else if (isIOS) {
+                // iOS safari supports upi:// directly sometimes
+                window.location.href = upiUrl;
             } else {
-                upiLink.href = '#'; // Prevent clicking with no amount
-                upiLink.classList.add('opacity-50', 'cursor-not-allowed');
-                upiLink.classList.remove('transform', 'hover:scale-105');
+                alert("Please use a mobile device with a UPI app to make a payment.");
             }
-        }
 
-        amountButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const amount = button.dataset.amount;
-                amountInput.value = amount;
-                updateUpiLink(amount);
-            });
-        });
-
-        amountInput.addEventListener('input', () => {
-            updateUpiLink(amountInput.value);
-        });
-
-
-        // Set default value on load
-        amountInput.value = '220';
-        updateUpiLink('220');
-
-        // Mobile Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-        const body = document.body;
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            body.classList.toggle('menu-open');
-        });
-
-        // Thank You Modal Logic
-        const thankYouModal = document.getElementById('thank-you-modal');
-        const closeModalBtn = document.getElementById('close-modal-btn');
-        const modalContent = thankYouModal.querySelector('.glass-card');
-
-        function showThankYouModal() {
-            thankYouModal.classList.remove('pointer-events-none');
-            thankYouModal.style.opacity = '1';
-            modalContent.style.transform = 'scale(1)';
-        }
-
-        function hideThankYouModal() {
-            thankYouModal.style.opacity = '0';
-            modalContent.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                thankYouModal.classList.add('pointer-events-none');
-            }, 300);
-        }
-
-        upiLink.addEventListener('click', () => {
+            // Show thank-you modal (existing code)
             setTimeout(() => {
                 showThankYouModal();
-            }, 500); // Small delay
-        });
+            }, 800);
+        } catch (err) {
+            console.error("UPI redirection error:", err);
+            alert("Unable to open UPI app. Please try again.");
+        }
+    });
 
-        closeModalBtn.addEventListener('click', hideThankYouModal);
-        thankYouModal.addEventListener('click', (e) => {
-            if (e.target === thankYouModal) {
-                hideThankYouModal();
-            }
-        });
-    </script>
-</body>
-</html>
+    // Mobile Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const body = document.body;
 
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        body.classList.toggle('menu-open');
+    });
+
+    // Thank You Modal Logic
+    const thankYouModal = document.getElementById('thank-you-modal');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    const modalContent = thankYouModal.querySelector('.glass-card');
+
+    function showThankYouModal() {
+        thankYouModal.classList.remove('pointer-events-none');
+        thankYouModal.style.opacity = '1';
+        modalContent.style.transform = 'scale(1)';
+    }
+
+    function hideThankYouModal() {
+        thankYouModal.style.opacity = '0';
+        modalContent.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            thankYouModal.classList.add('pointer-events-none');
+        }, 300);
+    }
+
+    closeModalBtn.addEventListener('click', hideThankYouModal);
+    thankYouModal.addEventListener('click', (e) => {
+        if (e.target === thankYouModal) {
+            hideThankYouModal();
+        }
+    });
+</script>
