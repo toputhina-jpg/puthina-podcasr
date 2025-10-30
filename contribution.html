@@ -105,22 +105,23 @@
         </div>
     </div>
 
-
-    <script>
-    // Amount selection logic
+<script>
+    // =============================
+    // 🔸 Amount selection & UPI setup
+    // =============================
     const amountInput = document.getElementById('amount');
     const upiLink = document.getElementById('upi-link');
     const amountButtons = document.querySelectorAll('.amount-btn');
-    const baseUpiUrl = 'upi://pay?pa=puthina.podcast@ptyes&pn=Puthina.Podcast&cu=INR&tn=Contribution';
+
+    // ✅ Updated UPI ID
+    const baseUpiUrl = 'upi://pay?pa=shibilikds938-1@okaxis&pn=Puthina.Podcast&cu=INR&tn=Contribution';
 
     function updateUpiLink(amount) {
         const finalAmount = parseFloat(amount);
         if (finalAmount > 0) {
             const amountParam = `&am=${finalAmount.toFixed(2)}`;
             const upiUrl = `${baseUpiUrl}${amountParam}`;
-            
-            // ✅ Intent URL (works on Android browsers reliably)
-            const intentUrl = `intent://pay?pa=puthina.podcast@ptyes&pn=Puthina.Podcast&am=${finalAmount.toFixed(2)}&cu=INR&tn=Contribution#Intent;scheme=upi;end`;
+            const intentUrl = `intent://pay?pa=shibilikds938-1@okaxis&pn=Puthina.Podcast&am=${finalAmount.toFixed(2)}&cu=INR&tn=Contribution#Intent;scheme=upi;end`;
 
             upiLink.dataset.upi = upiUrl;
             upiLink.dataset.intent = intentUrl;
@@ -148,16 +149,17 @@
         updateUpiLink(amountInput.value);
     });
 
-    // Default amount
+    // Default value
     amountInput.value = '220';
     updateUpiLink('220');
 
-    // Handle UPI click safely
+    // =============================
+    // 🔸 Safe UPI click handler
+    // =============================
     upiLink.addEventListener('click', (e) => {
         e.preventDefault();
         const upiUrl = upiLink.dataset.upi;
         const intentUrl = upiLink.dataset.intent;
-
         if (!upiUrl) return;
 
         const userAgent = navigator.userAgent.toLowerCase();
@@ -166,26 +168,28 @@
 
         try {
             if (isAndroid) {
-                // Try intent URL first
+                // ✅ Try intent scheme first (more reliable)
                 window.location.href = intentUrl;
             } else if (isIOS) {
-                // iOS safari supports upi:// directly sometimes
+                // ✅ iOS browsers sometimes support direct UPI link
                 window.location.href = upiUrl;
             } else {
-                alert("Please use a mobile device with a UPI app to make a payment.");
+                alert("Please use a mobile device with a UPI app to make this contribution.");
             }
 
-            // Show thank-you modal (existing code)
+            // Thank-you modal (existing)
             setTimeout(() => {
                 showThankYouModal();
             }, 800);
         } catch (err) {
-            console.error("UPI redirection error:", err);
+            console.error("UPI redirect error:", err);
             alert("Unable to open UPI app. Please try again.");
         }
     });
 
-    // Mobile Menu Toggle
+    // =============================
+    // 🔸 Mobile Menu Toggle (unchanged)
+    // =============================
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     const body = document.body;
@@ -196,7 +200,9 @@
         body.classList.toggle('menu-open');
     });
 
-    // Thank You Modal Logic
+    // =============================
+    // 🔸 Thank You Modal Logic (unchanged)
+    // =============================
     const thankYouModal = document.getElementById('thank-you-modal');
     const closeModalBtn = document.getElementById('close-modal-btn');
     const modalContent = thankYouModal.querySelector('.glass-card');
@@ -221,4 +227,8 @@
             hideThankYouModal();
         }
     });
-</script>
+   </script>
+
+</body>
+</html>
+
